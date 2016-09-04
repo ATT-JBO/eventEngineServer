@@ -70,7 +70,7 @@ def process():
     """consume messages from the queue and execute the rules
     Note: this starts a new thread, so it is a none blocking call.
     """
-    print(' [*] Waiting for messages. This is blocking')
+    print(' [*] Waiting for messages.')
     mq_recieve_thread = threading.Thread(target=channel.start_consuming)
     mq_recieve_thread.start()
 

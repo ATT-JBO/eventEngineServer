@@ -86,7 +86,7 @@ class EventEngine(object):
             sandbox.store(data)
             modulePath = sandbox.buildPath(data)
             topics = sandbox.queryTopics(modulePath)
-            dispatcher.setup(modulePath, topics)       # when we receive a value, it's a new calback object that has to be registered with the broker.
+            self.setup(modulePath, topics)       # when we receive a value, it's a new calback object that has to be registered with the broker.
         except Exception as e:
             logging.exception("failed to add definition")
             return str(e)

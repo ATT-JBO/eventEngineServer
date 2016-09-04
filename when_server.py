@@ -8,9 +8,9 @@ __status__ = "Prototype"  # "Development", or "Production"
 #platform specific (server vs user) code for the 'When' functionality
 
 import logging
-import att_event_engine.resources as resources
-import att_event_engine.attiotuserclient as iot
+import att_event_engine.att as att
 from att_event_engine.timer import Timer
+import att_event_engine.resources as resources
 import redis
 import settings
 
@@ -36,7 +36,7 @@ def registerMonitor(toMonitor, condition, callback):
 
     try:
         global TopicPaths
-        monitor = iot.SubscriberData()
+        monitor = att.SubscriberData(resources.defaultconnection)
         for item in toMonitor:
             if isinstance(item, Timer):
                 monitor.level = 'timer'
